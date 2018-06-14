@@ -8,7 +8,12 @@ services:
       - 80:80
     volumes:
       - .:/app/web/profiles/custom/catshop
+      # this takes advantage of the feature in Docker that a new anonymous
+      # volume (which is what we're creating here) will be initialized with the
+      # existing content of the image at the same location
       - ./data/drupal:/app/web/sites
+      # 使用本地版本，直到 https://www.drupal.org/project/erd/issues/2933522 被合并
+      # - /d/DrupalProjects/erd:/app/web/modules/contrib/erd
       - ./data/config:/app/config
     restart: always
     environment:
