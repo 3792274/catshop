@@ -15,7 +15,7 @@ services:
       WEB_DOCUMENT_ROOT: /app/web
 
   db:
-    image: mysql
+    image: mysql:5.7.21
     ports:
       - "3388:3306"
     volumes:
